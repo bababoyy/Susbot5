@@ -28,7 +28,7 @@ driver = webdriver.Chrome() #either use Firefox or Chrome (comment the other out
 sio = socketio.Client()
 
 #OPTIONS:
-reddit = "no" #yes/no... no = you must manually login to pixelplace and then press F9 to connect
+reddit = "yes" #yes/no... no = you must manually login to pixelplace and then press F9 to connect
 board = 7 #map number
 
 #BOT SPEED SETTINGS:
