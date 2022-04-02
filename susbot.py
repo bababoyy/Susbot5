@@ -28,7 +28,7 @@ driver = webdriver.Chrome() #either use Firefox or Chrome (comment the other out
 sio = socketio.Client()
 
 #OPTIONS:
-reddit = "yes" #yes/no... no = you must manually login to pixelplace and then press F9 to connect
+reddit = "no" #yes/no... no = you must manually login to pixelplace and then press F9 to connect
 board = 7 #map number
 
 #BOT SPEED SETTINGS:
@@ -111,7 +111,10 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
             self.auth_data()#cookies                
             self.visibility_state() #this checks the current tab you are on, and correctly sets the xpath stuff
         self.hotkeys()#activate keybinds
-        self.connection()
+        if self.ate_cookies == True:
+            self.connection()
+        else:
+            self.manual()
             
     #hotkey binds:
     def hotkeys(self):
@@ -469,11 +472,11 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
     def manual(self): #manual login stuff
         driver.get(f"https://pixelplace.io/{board}")
         print("After you login in manually, press F9.")
+        keyboard.add_hotkey("f9", lambda: self.manualF9())
 
     def manualF9(self): #manual login stuff
         self.visibility_state()
         self.auth_data()
-        self.ate_cookies = True
         keyboard.remove_hotkey('f9')
         self.connection()        
         
