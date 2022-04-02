@@ -505,3 +505,4 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
         self.ate_cookies = True
     
 goto = Sus_Bot(crewmate.username, crewmate.password) #start an instance of the Sus_Bot class as 'goto'
+#end of the line, partner
