@@ -121,17 +121,17 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
         keyboard.on_press(self.onkeypress)#1-9 buttons equip currently selected colors
         keyboard.add_hotkey('shift+y', lambda: self.zone('top left')) #mark top left corner of zone to bot
         keyboard.add_hotkey('shift+u', lambda: self.zone('bottom right')) #mark bottom right corner of zone to bot
-        keyboard.add_hotkey('shift+/', lambda: self.restore_area()) #restore zone from backup
+        keyboard.add_hotkey('shift+/', lambda: self.restore_area()) #restore zone from backup image (7place.png)
         keyboard.add_hotkey('shift+c', lambda: self.copy_img()) #copy zone
-        keyboard.add_hotkey('shift+v', lambda: self.paste_img('center')) #paste zone
-        keyboard.add_hotkey('shift+b', lambda: self.paste_img('corner')) #paste zone
+        keyboard.add_hotkey('shift+v', lambda: self.paste_img('center')) #paste zone (middle of image is at mouse cursor)
+        keyboard.add_hotkey('shift+b', lambda: self.paste_img('corner')) #paste zone (top left corner image starts at mouse cursor)
         keyboard.add_hotkey('shift+x', lambda: self.toggle_logos()) #toggle guild war logos on/off
         keyboard.add_hotkey("shift+'", lambda: self.rectangle_scatter('not alt')) #paint on equipped colors in zone
         keyboard.add_hotkey("shift+;", lambda: self.rectangle_scatter('alt')) #paint 'not' on equipped colors in zone
         keyboard.add_hotkey("shift+r", lambda: self.lgbt()) #paint on equipped colors in zone
         keyboard.add_hotkey("shift+q", lambda: self.tv_screen('on')) #paint on equipped colors in zone
         keyboard.add_hotkey("shift+e", lambda: self.amogus()) #sus
-        keyboard.add_hotkey("shift+z", lambda: self.tree()) #sus
+        keyboard.add_hotkey("shift+z", lambda: self.tree()) #tree
         print('Hotkeys on.')
         
     def connection(self): #maintain socket connection and update pixel cache
