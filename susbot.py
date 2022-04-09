@@ -465,7 +465,11 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
         time.sleep(.5)
         
     def get_7(self):#gets the latest download of map
-        urllib.request.urlretrieve(f"https://pixelplace.io/canvas/{board}.png", f"{board}.png")
+        url = f'https://pixelplace.io/canvas/{board}.png?t='
+        page = requests.get(url)
+        f_name = f'{board}.png'
+        with open(f_name, 'wb') as f:
+            f.write(page.content)
         self.image = PIL.Image.open(f'{board}.png').convert('RGB')
         self.cache = self.image.load() #individual pixels with = self.cache[x, y]
         
