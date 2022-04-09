@@ -465,7 +465,7 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
         time.sleep(.5)
         
     def get_7(self):#gets the latest download of map
-        url = f'https://pixelplace.io/canvas/{board}.png?t='
+        url = f'https://pixelplace.io/canvas/{board}.png?t=1'
         page = requests.get(url)
         f_name = f'{board}.png'
         with open(f_name, 'wb') as f:
