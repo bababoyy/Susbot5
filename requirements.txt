@@ -5,3 +5,4 @@ Pillow
 numpy
 selenium
 websocket-client
+chromedriver-autoinstaller==0.3.1

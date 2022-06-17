@@ -21,7 +21,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()
 #driver = webdriver.Firefox() #either use Firefox or Chrome (comment the other out) *Firefox requires geckodriver.exe
 driver = webdriver.Chrome() #either use Firefox or Chrome (comment the other out) *chrome requires Chromedriver.exe
 
@@ -485,19 +486,15 @@ class Sus_Bot(): #---------Sus_Bot main class-----------
         self.connection()        
         
     def login(self): #logins to pixelplace through reddit
-        driver.get("https://pixelplace.io/api/sso.php?type=2&action=login")
+        # https://pixelplace.io/api/sso.php?type=2&action=login
+        driver.get("https://www.reddit.com/login/")
         driver.find_element(By.ID,'loginUsername').send_keys(crewmate.username)
         driver.find_element(By.ID,'loginPassword').send_keys(crewmate.password)
         driver.find_elements(By.XPATH,'/html/body/div/main/div[1]/div/div[2]/form/fieldset')[4].click()
+        time.sleep(3)
+        driver.get('https://pixelplace.io/api/sso.php?type=2&action=login')
         WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH,'/html/body/div[3]/div/div[2]/form/div/input'))).click()
-        try:
-            WebDriverWait(driver, 20).until(
-                    EC.element_to_be_clickable((By.XPATH,'/html/body/div[5]/div[2]/a/img'))).click()
-            WebDriverWait(driver, 20).until(
-                EC.element_to_be_clickable((By.XPATH,'/html/body/div[3]/div[8]/a[2]/div[3]/button[2]'))).click()
-        except:
-            pass
         print('Logged in.')
         return
 
