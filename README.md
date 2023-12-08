@@ -16,25 +16,24 @@ I use Windows 10, and Python 3.7.9 and the latest version of Google Chrome, if y
  
  Navigate to the folder with Susbot5. (in the command prompt)
  
- Type: pip install -r requirements.txt
+ Type: `pip install -r requirements.txt`
  
- After it successfully installs that,
  
- if you plan to use reddit auto login,
+ If you plan to use reddit login,
  
- change your name/pass in crewmate.py
+ change your name/pass in `crewmate.py`
  
- Then you simply double click susbot.py
+ Then you simply double click `susbot.py`
  
  If you don't want to use auto login,
  
- Then you should edit susbot.py
+ Then you should edit `susbot.py`
  
  and change the line that says
  
- reddit = "yes" to a "no"
+ `reddit = "yes"` to a `"no"`
  
- After that, save and run susbot.py
+ After that, save and run `susbot.py`
  
  You need to login manually each time you run the bot
  
